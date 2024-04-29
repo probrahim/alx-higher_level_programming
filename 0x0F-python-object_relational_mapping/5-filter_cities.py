@@ -17,10 +17,9 @@ def tuto():
     data_1.execute("""SELECT cities.name FROM
                 cities INNER JOIN states ON states.id=cities.state_id
                 WHERE states.name=%s""", (sys.argv[4],))
-
     result = data_1.fetchall()
-    for row in result:
-        print(row)
+    tmp = list(row[0] for row in result)
+    print(*tmp, sep=", ")
 
 
 if __name__ == "__main__":
