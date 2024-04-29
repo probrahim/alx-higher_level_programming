@@ -6,6 +6,7 @@ from model_state import Base, State
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
+
 def jngl_diff():
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]))
@@ -17,6 +18,7 @@ def jngl_diff():
         print("Nothing")
     else:
         print(instance.id, instance.name, sep=": ")
+
 
 if __name__ == "__main__":
     jngl_diff()
