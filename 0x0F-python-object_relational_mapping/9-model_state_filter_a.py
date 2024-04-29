@@ -22,7 +22,8 @@ def plutot():
     kumul = session.query(State).filter(State.name.like('%a%'))\
         .order_by(State.id).all()
     for i in kumul:
-        print("{}: {}".format(i.id, i.name))
+        if "a" in i.name:
+            print("{}: {}".format(i.id, i.name))
     session.close()
 
 
