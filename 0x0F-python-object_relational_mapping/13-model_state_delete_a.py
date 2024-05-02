@@ -1,18 +1,17 @@
 #!/usr/bin/python3
 
 
-""" show table form  databaes named  """
-
-from sys import argv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 
 def delete_states():
-        engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
-                           .format(argv[1], argv[2], argv[3]),
+    moteur = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
+                           .format("root", "root", "hbtn_0e_6_usa"),
                            pool_pre_ping=True)
+    Base.metadata.create_all(moteur)
+
     Session = sessionmaker(bind=moteur)
     session = Session()
 
